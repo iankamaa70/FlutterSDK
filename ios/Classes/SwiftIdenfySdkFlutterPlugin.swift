@@ -17,6 +17,11 @@ public class SwiftIdenfySdkFlutterPlugin: NSObject, FlutterPlugin {
             if let arguments = call.arguments as? [String: Any],
                let authToken = arguments["authToken"] as? String {
 
+                IdenfyCommonColors.idenfyMainColorV2 = UIColor.green
+                IdenfyCommonColors.idenfyMainDarkerColorV2 = UIColor.green
+                IdenfyCommonColors.idenfySecondColorV2 = UIColor.black
+                IdenfyCommonColors.idenfyBackgroundColorV2 = UIColor.white
+
                 let idenfySettingsV2 = IdenfyBuilderV2()
                     .withAuthToken(authToken)
                     .build()
@@ -26,6 +31,7 @@ public class SwiftIdenfySdkFlutterPlugin: NSObject, FlutterPlugin {
                 let idenfyVC = idenfyController.instantiateNavigationController()
 
                 UIApplication.shared.keyWindow?.rootViewController?.present(idenfyVC, animated: true, completion: nil)
+
 
                 idenfyController.handleIdenfyCallbacksWithManualResults(idenfyIdentificationResult: {
                     idenfyIdentificationResult
